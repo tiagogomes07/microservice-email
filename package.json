@@ -1,0 +1,28 @@
+{
+  "name": "microservico_email",
+  "version": "1.0.0",
+  "description": "microservico email",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --ui tdd tests/mytest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagogomes07/microservico_email.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagogomes07/microservico_email/issues"
+  },
+  "homepage": "https://github.com/tiagogomes07/microservico_email#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemailer": "^4.6.7",
+    "pg": "6.1.0",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
