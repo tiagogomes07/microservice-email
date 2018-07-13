@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tiagogomes07/microservico_email#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "nodemailer": "^4.6.7",
     "pg": "6.1.0",

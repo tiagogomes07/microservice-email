@@ -2,7 +2,13 @@ var express = require('express');
 const app = express();
 const email = require('./features/email-envio.js');
 const emailTemplateCrud = require('./features/email-template-crud');
-const clientCrud = require('/features/cliente-crud');
+const clientCrud = require('./features/cliente-crud');
+
+app.set('view engine', 'ejs');
+
+app.get('/', function(req,res){
+  res.render('home/index')
+})
 
 app.get('/enviar/:email/:titulo/:assunto/:repetir?', function(req, res) {
     let repetir = req.params.repetir;
