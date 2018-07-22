@@ -3,8 +3,16 @@ const app = express();
 const email = require('./features/email-envio.js');
 const emailTemplateCrud = require('./features/email-template-crud');
 const clientCrud = require('./features/cliente-crud');
+var cors = require('cors')
 
-app.set('view engine', 'ejs');
+// var corsOptions = {
+//   origin: '*',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+
+app.use(cors());
+
+
 
 app.get('/', function(req,res){
   res.render('home/index')
@@ -74,7 +82,7 @@ app.get('/template/cadastrar/:alias/:titulo/:corpo', function(req, res) {
   res.send(`Cadastrado com sucesso!`)              
 });
 
-app.get('/template/get/', async function(req, res) {  
+app.get('/template', async function(req, res) {  
   let result = await emailTemplateCrud.readAll()
   res.send( result )              
 });
@@ -102,4 +110,6 @@ app.delete('/template/delete/:alias', function(req, res) {
 
 //estatisticas
   //gravar hora e dia do email e para quem foi enviado
-app.listen(3000);
+const port = 2999
+app.listen(port);
+console.log(`subindo na porta ${port}`)

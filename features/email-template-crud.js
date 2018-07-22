@@ -51,7 +51,10 @@ module.exports = {
     },
     readAll: async function(_alias){
         let item = await emailModel.findAll()
-        return item[0].dataValues      
+        if(item.length>0){
+            return item;
+        }
+        return null;              
     },
 
 };
