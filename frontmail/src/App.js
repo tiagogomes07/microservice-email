@@ -1,23 +1,9 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import TemplateEmail from './templateEmail/template-email';
-import CreateEmail from './templateEmail/create-email';
+import React from "react";
+import GridTemplateEmail from "./gridTemplateEmail/template-email";
 
-class App extends Component {
+class App extends React.Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-
-        <TemplateEmail/>
-
-        <CreateEmail/>
-      </div>
-    );
+    return <GridTemplateEmail />;
   }
 }
 
