@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import Cadastro from "../enviaremail/cadastro";
+import FormWYSIWYG from "../wysiwyg/form";
 
 export default class NameForm extends React.Component {
   constructor(props) {
@@ -78,7 +78,7 @@ export default class NameForm extends React.Component {
                 value={this.state.value}
                 onChange={this.handleInputChange}
               /> */}
-              <Cadastro />
+              <FormWYSIWYG />
             </div>
 
             <input className="btn btn-primary" type="submit" value="Submit" />

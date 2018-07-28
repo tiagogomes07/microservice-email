@@ -1,14 +1,12 @@
-import { React, Component } from "react";
+import React from "react";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
-import { SketchPicker } from "react-color";
-import PropTypes from "prop-types";
-import icon from "./icon.jpg";
-import "./cadastro.css";
+import ColorPic from "./color-pic";
+import "./form.css";
 
-export default class CadastroEmail extends React.Component {
+export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,12 +19,6 @@ export default class CadastroEmail extends React.Component {
       editorState
     });
   };
-
-  returnValue() {
-    return draftToHtml(
-      convertToRaw(this.state.editorState.getCurrentContent())
-    );
-  }
 
   render() {
     return (
@@ -43,7 +35,9 @@ export default class CadastroEmail extends React.Component {
             textAlign: { inDropdown: true },
             link: { inDropdown: true },
             history: { inDropdown: true }
-            // colorPicker: { component: ColorPic }
+          }}
+          toolbar={{
+            colorPicker: { component: ColorPic }
           }}
         />
         <textarea
