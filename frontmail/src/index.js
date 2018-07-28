@@ -7,6 +7,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from "../src/navbar/navbar";
 import CreateTemplate from "../src/gridTemplateEmail/create-email";
+//import { EnviarEmail } from "../src/enviaremail/enviar-email";
+import Cadastro from "../src/enviaremail/cadastro";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -24,11 +26,15 @@ ReactDOM.render(
             <Link className="w3-bar-item w3-button" to="/CreateTemplate">
               Novo Modelo Email
             </Link>
+            <Link className="w3-bar-item w3-button" to="/EnviarEmail">
+              Enviar Email
+            </Link>
           </div>
         </div>
         <div className="col-md-10">
           <Route exact path="/" component={App} />
           <Route exact path="/CreateTemplate" component={CreateTemplate} />
+          <Route exact path="/EnviarEmail" component={Cadastro} />
         </div>
       </div>
     </div>

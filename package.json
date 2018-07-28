@@ -19,11 +19,19 @@
   "homepage": "https://github.com/tiagogomes07/microservico_email#readme",
   "dependencies": {
     "cors": "^2.8.4",
+    "draft-js": "^0.10.5",
+    "draftjs-to-html": "^0.8.4",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "immutable": "^3.8.2",
     "nodemailer": "^4.6.7",
     "pg": "6.1.0",
-    "sequelize": "^4.38.0"
+    "react-ckeditor-component": "^1.0.7",
+    "react-color": "^2.14.1",
+    "react-dom": "^16.4.1",
+    "react-draft-wysiwyg": "^1.12.13",
+    "sequelize": "^4.38.0",
+    "yarn": "^1.9.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
