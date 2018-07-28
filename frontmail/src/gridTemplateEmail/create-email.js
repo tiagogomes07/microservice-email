@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import Cadastro from "../enviaremail/cadastro";
 
 export default class NameForm extends React.Component {
   constructor(props) {
@@ -70,13 +71,14 @@ export default class NameForm extends React.Component {
             </div>
             <div class="form-group">
               <label for="corpo">Corpo</label>
-              <input
+              {/* <input
                 name="corpo"
                 className="form-control"
                 type="text"
                 value={this.state.value}
                 onChange={this.handleInputChange}
-              />
+              /> */}
+              <Cadastro />
             </div>
 
             <input className="btn btn-primary" type="submit" value="Submit" />

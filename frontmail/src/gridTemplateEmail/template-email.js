@@ -50,10 +50,10 @@ export default class templateList extends React.Component {
           <tbody>
             {this.state.list.map(function(itenList, index) {
               return (
-                <tr scope="row">
-                  <td key={index}>{itenList.alias}</td>
-                  <td key={index}>{itenList.titulo}</td>
-                  <td key={index}>{itenList.corpo}</td>
+                <tr key={index}>
+                  <td>{itenList.alias}</td>
+                  <td>{itenList.titulo}</td>
+                  <td>{itenList.corpo}</td>
                 </tr>
               );
             })}
