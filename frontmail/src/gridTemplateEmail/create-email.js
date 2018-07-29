@@ -1,8 +1,9 @@
 import React from "react";
 import Axios from "axios";
 import FormWYSIWYG from "../wysiwyg/form";
+import PubSub from "pubsub-js";
 
-export default class NameForm extends React.Component {
+export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = { alias: "", titulo: "", corpo: "" };
@@ -10,6 +11,15 @@ export default class NameForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentWillMount = () => {
+    let self = this;
+    PubSub.subscribe("form-wys", function(msg, data) {
+      console.log("sucesso", { msg, data });
+      self.setState({ corpo: data });
+      console.log("new state", self.state.corpo);
+    });
+  };
 
   handleInputChange(event) {
     const target = event.target;
@@ -28,61 +38,63 @@ export default class NameForm extends React.Component {
     let alias = this.state.alias;
     let titulo = this.state.titulo;
     let corpo = this.state.corpo;
-    console.log("ComponentWillMoun");
-    Axios.get(
-      `http://localhost:2999/template/cadastrar/${alias}/${titulo}/${corpo}`,
-      {}
-    )
+    console.log(
+      `http://localhost:2999/template/cadastrar/${alias}/${titulo}/${corpo}`
+    );
+
+    Axios.post(`http://localhost:2999/template/cadastrar`, {
+      alias: alias,
+      titulo: titulo,
+      corpo: corpo
+    })
       .then(function() {
         //console.log('response.data',response.data);
         //that.setState({list:response.data})
         alert("salvo com sucesso");
       })
       .catch(function(error) {
-        alert(error);
+        console.log(error);
       });
   }
 
   render() {
     console.log(this.state.list);
     return (
-      <div className="">
-        <div className="col-md-10">
+      <div classNameName="">
+        <div classNameName="col-md-10">
           <form onSubmit={this.handleSubmit}>
-            <div class="form-group">
-              <label for="alias">Alias</label>
+            <div className="form-group">
+              <label>Alias</label>
               <input
                 name="alias"
-                className="form-control"
+                classNameName="form-control"
                 type="text"
                 value={this.state.value}
                 onChange={this.handleInputChange}
               />
             </div>
-            <div class="form-group">
-              <label for="titulo">Titulo</label>
+            <div className="form-group">
+              <label>Titulo</label>
               <input
                 name="titulo"
-                className="form-control"
+                classNameName="form-control"
                 type="text"
                 value={this.state.value}
                 onChange={this.handleInputChange}
               />
             </div>
-            <div class="form-group">
-              <label for="corpo">Corpo</label>
-              {/* <input
-                name="corpo"
-                className="form-control"
-                type="text"
-                value={this.state.value}
-                onChange={this.handleInputChange}
-              /> */}
+            <div className="form-group">
+              <label>Corpo</label>
               <FormWYSIWYG />
             </div>
 
-            <input className="btn btn-primary" type="submit" value="Submit" />
+            <input
+              classNameName="btn btn-primary"
+              type="submit"
+              value="Submit"
+            />
           </form>
+          <button onClick={this.teste} />
         </div>
       </div>
     );

@@ -5,6 +5,7 @@ import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import ColorPic from "./color-pic";
 import "./form.css";
+import PubSub from "pubsub-js";
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -12,12 +13,31 @@ export default class Form extends React.Component {
     this.state = {
       editorState: EditorState.createEmpty()
     };
+    this.token = "";
+  }
+
+  componentDidMount() {
+    // this.token = PubSub.subscribe("form-wys", function(msg, data) {
+    //   console.log({ msg, data });
+    //   return { msg, data };
+    // });
+    // console.log("token", this.token);
+  }
+
+  componentWillUnmount() {
+    // PubSub.unsubscribe(this.token);
   }
 
   onEditorStateChange = editorState => {
     this.setState({
       editorState
     });
+
+    let htmlValue = draftToHtml(
+      convertToRaw(this.state.editorState.getCurrentContent())
+    );
+
+    PubSub.publish("form-wys", htmlValue);
   };
 
   render() {
