@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import FormWYSIWYG from "../wysiwyg/form";
+import FormWYSIWYG from "../../components/wysiwyg/form";
 import PubSub from "pubsub-js";
 
 export default class Form extends React.Component {

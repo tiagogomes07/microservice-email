@@ -3,12 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import NavBar from "../src/navbar/navbar";
-import CreateTemplate from "../src/gridTemplateEmail/create-email";
-//import { EnviarEmail } from "../src/enviaremail/enviar-email";
-import formWYSUWYG from "../src/wysiwyg/form";
+import NavBar from "../src/components/navbar/navbar";
+import CreateTemplate from "../src/email/manager-template/create-email";
+import SendEmail from "./pages/email/send/send";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -34,7 +32,8 @@ ReactDOM.render(
         <div className="col-md-10">
           <Route exact path="/" component={App} />
           <Route exact path="/CreateTemplate" component={CreateTemplate} />
-          <Route exact path="/EnviarEmail" component={formWYSUWYG} />
+          <Route exact path="/EnviarEmail" component={SendEmail} />
+          {/* component={formWYSUWYG} */}
         </div>
       </div>
     </div>

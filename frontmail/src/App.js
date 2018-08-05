@@ -1,9 +1,9 @@
 import React from "react";
-import GridTemplateEmail from "./gridTemplateEmail/template-email";
+import ListEmailTemplate from "./pages/email/manager-template/list-email-template";
 
 class App extends React.Component {
   render() {
-    return <GridTemplateEmail />;
+    return <ListEmailTemplate />;
   }
 }
 

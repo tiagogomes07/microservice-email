@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-export default class templateList extends React.Component {
+export default class ListEmailTemplate extends React.Component {
   //this.const list =[]
   constructor() {
     super();
